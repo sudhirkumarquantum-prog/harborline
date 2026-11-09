@@ -1,0 +1,48 @@
+{
+  "flight": "HB418",
+  "from": "BLR",
+  "to": "IXE",
+  "open": true,
+  "seats": [
+    {"id": "12A", "kind": "window"},
+    {"id": "12C", "kind": "aisle"},
+    {"id": "14A", "kind": "window"},
+    {"id": "14C", "kind": "aisle"},
+    {"id": "16A", "kind": "window"},
+    {"id": "16C", "kind": "aisle"}
+  ],
+  "passengers": [
+    {
+      "locator": "H4K1",
+      "name": "Asha Menon",
+      "documentOk": true,
+      "checkedIn": false,
+      "bags": 1,
+      "preference": "aisle"
+    },
+    {
+      "locator": "H4K2",
+      "name": "Rafi Qureshi",
+      "documentOk": true,
+      "checkedIn": true,
+      "bags": 0,
+      "preference": "window"
+    },
+    {
+      "locator": "H4K3",
+      "name": "Leela Das",
+      "documentOk": false,
+      "checkedIn": false,
+      "bags": 0,
+      "preference": "aisle"
+    },
+    {
+      "locator": "H4K4",
+      "name": "Nico Park",
+      "documentOk": true,
+      "checkedIn": false,
+      "bags": 2,
+      "preference": "window"
+    }
+  ]
+}

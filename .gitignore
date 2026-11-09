@@ -1,0 +1,9 @@
+target/
+.idea/
+*.iml
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.class
+.DS_Store

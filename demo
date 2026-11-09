@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Walk HB418 in the concierge, then on the Java desk.
+set -euo pipefail
+cd "$(dirname "$0")"
+
+echo "=== concierge ==="
+PYTHONPATH=concierge python3 -m harborline
+echo
+echo "=== desk ==="
+mvn -B -f orchestrator/pom.xml -DskipTests compile
+java -cp orchestrator/target/classes dev.harborline.DeskDemo
