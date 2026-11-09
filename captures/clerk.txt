@@ -1,0 +1,28 @@
+=== clerk ===
+Harborline clerk   HB418
+The clerk proposes. The examiner admits. The desk is the only writer.
+
+Party: "sit Nico in the window beside Asha"
+  clerk reads: lookup_dossier H4K1, lookup_dossier H4K4, read_seatmap HB418
+  attempt 1 plan H4K1=12C H4K4=1A
+  refused seat_not_offered H4K4 seat 1A was not offered
+  attempt 2 plan H4K1=12C H4K4=12A
+  admitted
+  desk receives assign_seat H4K1=12C H4K4=12A
+
+Handoff: Leela Das, missing document
+  concierge trace: lookup_dossier → read_flight → read_document
+  attempt 1 brief document smuggling assign_seat
+  refused brief_cannot_write assign_seat
+  attempt 2 brief document
+  admitted
+  desk not called
+  Leela Das stops at document. Trace lookup_dossier read_flight read_document. Decision 0005-the-graph-owns-the-tools.md.
+
+=== desk admits the party ===
+Harborline desk   admitted party HB418
+One gate acquisition, seats then passengers, both sorted.
+
+H4K1 seat 12C intents [H4K1:seat, H4K1:bag, H4K1:stamp]
+H4K4 seat 12A intents [H4K4:seat, H4K4:bag, H4K4:stamp]
+host reads 1
