@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Walk the clerk, then admit the party on the desk. Save the transcript.
+set -euo pipefail
+cd "$(dirname "$0")"
+
+mvn -B -f orchestrator/pom.xml -DskipTests -q compile
+mkdir -p captures
+{
+  echo "=== clerk ==="
+  PYTHONPATH=clerk:concierge python3 -m harborline_clerk
+  echo
+  echo "=== desk admits the party ==="
+  java -cp orchestrator/target/classes dev.harborline.PartyDemo
+} | tee captures/clerk.txt

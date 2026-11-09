@@ -75,6 +75,35 @@ class DepartureDeskTest {
     }
 
     @Test
+    void aPartyClaimsBothSeatsOrNeither() {
+        DepartureDesk desk = DepartureDesk.hb418(() -> "map");
+
+        List<Receipt> receipts = desk.admitAll(List.of(
+                new PartyMember("H4K1", "12C", true, 1),
+                new PartyMember("H4K4", "12A", true, 2)
+        ));
+
+        assertEquals(List.of("H4K1:seat", "H4K1:bag", "H4K1:stamp"), receipts.get(0).appliedIntentIds());
+        assertEquals(List.of("H4K4:seat", "H4K4:bag", "H4K4:stamp"), receipts.get(1).appliedIntentIds());
+        assertEquals(1, desk.hostCalls());
+    }
+
+    @Test
+    void aTakenSeatReleasesTheRestOfTheParty() {
+        DepartureDesk desk = DepartureDesk.hb418(() -> "map");
+        desk.checkIn("H4K5", "12C", true, 0);
+
+        Rejected rejected = assertThrows(Rejected.class, () -> desk.admitAll(List.of(
+                new PartyMember("H4K1", "12C", true, 0),
+                new PartyMember("H4K4", "14A", true, 0)
+        )));
+
+        assertEquals("seat", rejected.reason());
+        Receipt later = desk.checkIn("H4K4", "14A", true, 0);
+        assertEquals("14A", later.seat());
+    }
+
+    @Test
     void aMissingDocumentDoesNotKeepTheSeat() {
         DepartureDesk desk = DepartureDesk.hb418(() -> "map");
 

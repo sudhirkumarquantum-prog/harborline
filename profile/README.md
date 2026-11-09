@@ -9,6 +9,7 @@ Most of that work is inside Sabre and stays there. The public laboratory is [Har
 - A host memo that collapses a cabin of identical reads into one in-flight call
 - A check-in graph whose current node is the only thing allowed to call a tool
 - A cassette that fails when the journey drifts, and a catalog that ranks the decisions in this repo
+- A clerk that may propose a party plan or a handoff brief, revised once against a typed refusal, with the desk still the only writer
 
 Google Professional Cloud Architect. Agentic systems, Java, and the unglamorous part of airline modernization: getting a passenger update off a host without losing the consistency the host used to guarantee.
 
